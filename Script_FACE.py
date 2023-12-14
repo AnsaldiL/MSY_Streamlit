@@ -49,7 +49,7 @@ st.latex(r'''
     
 st.caption("L'équation du MSY issu du modèle de Schaefer")
 st.latex(r'''
-         CMSY_{Scheafer} = \frac{r\times K} {4}
+         CMSY_{Scheafer} = \frac{r.K} {4}
          ''')
          
          
@@ -63,7 +63,7 @@ st.latex(r'''
 
 st.caption("L'équation du MSY issu du modèle de Fox")
 st.latex(r'''
-    CMSY_{Fox} = \frac{r\times K} {e^1\times \ln{(K)}}
+    CMSY_{Fox} = \frac{r. K} {e^1.\ln{(K)}}
     ''')
 
 
