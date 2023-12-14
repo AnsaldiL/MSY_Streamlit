@@ -38,13 +38,8 @@ st.line_chart(data=data, x='Year',y="Catches")
 
 
 
-import numpy as np
-
 # Number of years of projections
-n=100
-
-# Number of trajectories
-n_traj = 100
+n= 100 #len(data)
 
 
 # Parameters for the Schaeffer model
@@ -68,30 +63,37 @@ r=st.slider("CHoix de valeur de r",0.0,1.0, step=0.1)
 K=st.slider("CHoix de valeur de K",50,5000, step=50)
 
 
-
+#Biomasse avec Schaefer :
 for i in range(n):
     B_shaefer[i+1] = B_shaefer[i] + r * B_shaefer[i] * (1-B_shaefer[i]/K) - h_MSY*B_shaefer[i]
-    T[i+1] = T[i]+1
 print(B_shaefer)
 
-
-sequence = list(range(101))
+sequence = list(range(n+1))
 print(sequence)
 
+
+r= 0.4
+#g avec Schaefer
+g_schaefer = np.zeros(n+1)
+for i in range(n):
+    g_schaefer[i] = r * B_shaefer[i] * (1-B_shaefer[i]/K)
+print(g_schaefer)
+
+
+
 colonne1 = sequence
-colonne2 = B_shaefer
+biom_schaefer = B_shaefer
+g_biom_schaefer = g_schaefer
 
-
-df = pd.DataFrame({'Temps': colonne1, 'Biomasse': colonne2})
+df = pd.DataFrame({'Temps': colonne1, 'Biomasse': B_shaefer})
 print(df)
 st.line_chart( data=df,x='Temps',y="Biomasse")
  
 
 
-
-
-
-
+df_msy = pd.DataFrame({'Biomasse' : biom_schaefer, 'g(Biomasse)' : g_biom_schaefer})
+print(df_msy)
+st.line_chart(data = df_msy, x='Biomasse', y='g(Biomasse)')
 
 
 
