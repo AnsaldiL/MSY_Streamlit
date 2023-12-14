@@ -2,7 +2,7 @@
 """
 Created on Fri Dec  8 15:17:10 2023
 
-@author: lucia
+@author: lucile
 """
 #conda activate FACE
 #streamlit run Script_FACE.py
