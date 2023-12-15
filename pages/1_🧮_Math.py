@@ -15,7 +15,7 @@ st.write("# Schaefer and Fox model 🧮")
 
 
 
-st.subheader("Equations de production de biomasse et de biomasse au MSY avec les modèles de Schaefer et Fox")
+st.subheader("Biomass and MSY biomass production equations with Schaefer and Fox models")
 
 cola, colb = st.columns(2)
 

@@ -13,7 +13,7 @@ import math as m
 st.set_page_config(page_title="Model", page_icon="📈")
 st.write("# Modelling the fishing dynamic 📈")
 
-DATE_COLUMN = 'Year/Catches'
+DATE_COLUMN = 'time/catches'
 DATA_URL = ('https://raw.githubusercontent.com/AnsaldiL/MSY_Streamlit/main/data_BiomProd.txt')
 
 def load_data(nrows):
@@ -40,9 +40,9 @@ n= 100 #len(data)
 
 
 
-rs = st.slider("Choix de valeur de r",0.0,1.0, step=0.005)
-Ks = st.slider("Choix de valeur de K",50,5000, step=5)
-h=st.slider("Choix de la pression de pêche", 0.0, 1.0, step=0.01)
+rs = st.slider("Value of **r** *(growth rate)*?",0.0,1.0, step=0.005)
+Ks = st.slider("Value of **K** *(carrying capacity)*?",50,5000, step=5)
+h=st.slider("Value of **h** *(harvest rate)*?", 0.0, 1.0, step=0.01)
 
 col2, col3 = st.columns(2)
 
@@ -54,7 +54,7 @@ with col2:
     data['CMSY Shaefer'] = np.repeat(C_MSY_Shaefer, len(data))
     data['CMSY Fox'] = np.repeat(C_MSY_Fox, len(data))
 
-    st.caption("Données de captures de merlus en Namibie, entre 1964 et 1999")
+    st.subheader("Hake catches")
     st.line_chart(data=data, x='Year',y=["Catches","CMSY Shaefer","CMSY Fox"])
 
 
@@ -85,7 +85,7 @@ with col3:
 
     colonne1 = sequence
     
-    df = pd.DataFrame({'Temps': colonne1, 'Biomasse_FOX': B_FOX, 'Biomasse_shaefer': B_shaefer})
+    df = pd.DataFrame({'time': colonne1, 'Fox': B_FOX, 'Schaefer': B_shaefer})
     
-    st.caption("Evolution de la biomasse en fonction du temps")
-    st.line_chart(data=df,x='Temps',y=["Biomasse_shaefer", "Biomasse_FOX"])
+    st.subheader("Change in biomass over time")
+    st.line_chart(data=df,x='time',y=["Schaefer", "Fox"])
