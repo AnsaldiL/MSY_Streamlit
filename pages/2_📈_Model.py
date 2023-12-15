@@ -22,7 +22,7 @@ def load_data(nrows):
     return data
 
 # Create a text element and let the reader know the data is loading.
-data_load_state = st.text('Loading data...')
+#data_load_state = st.text('Loading data...')
 # Load 10,000 rows of data into the dataframe.
 
 data = load_data(10000)
@@ -38,40 +38,7 @@ if st.checkbox('Show raw data'):
 # Number of years of projections
 n= 100 #len(data)
 
-st.subheader("Equations de production de biomasse et de biomasse au MSY avec les modèles de Schaefer et Fox")
 
-cola, colb = st.columns(2)
-
-with cola:
-    
-    # Equation du modèle de schaefer 
-    #st.caption("L'équations de biomasse avec le modèle de Schaefer")
-    # st.latex(r'''
-    #          B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K}\right) - h.B_t\\
-    #          ''')
-    
-    
-    #st.caption("L'équation du MSY issu du modèle de Schaefer")
-    st.latex(r'''
-             
-             B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K}\right) - h.B_t\\
-             C_{MSY} = \frac{r\times K} {4}
-            
-             ''')
-      
-with colb:
-         
-    # Equation du modèle de FOX   
-    #st.caption("L'équations de biomasse avec le modèle de Fox")
-    st.latex(r'''
-             B_{t+1} = B_t + r.B_t.\left(1 - \frac{\log(B_t)}{\log(K)}\right) - h.B_t\\
-             C_{MSY} = \frac{r\times K} {e^1\times \ln{(K)}}
-             ''')
-
-    # CMSY with Fox model formalism
-    
-    #st.caption("L'équation du MSY issu du modèle de Fox")
-   
 
 rs = st.slider("Choix de valeur de r",0.0,1.0, step=0.005)
 Ks = st.slider("Choix de valeur de K",50,5000, step=5)
