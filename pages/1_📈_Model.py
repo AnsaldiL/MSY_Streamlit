@@ -11,6 +11,7 @@ import numpy as np
 import math as m
 
 st.set_page_config(page_title="Model", page_icon="📈")
+st.write("# Modelling the fishing dynamic 📈")
 
 DATE_COLUMN = 'Year/Catches'
 DATA_URL = ('https://raw.githubusercontent.com/AnsaldiL/MSY_Streamlit/main/data_BiomProd.txt')
@@ -27,7 +28,7 @@ data_load_state = st.text('Loading data...')
 data = load_data(10000)
 
 # Notify the reader that the data was successfully loaded.
-data_load_state.text("Done! (using st.cache_data)")
+#data_load_state.text("Done! (using st.cache_data)")
 
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
@@ -37,41 +38,46 @@ if st.checkbox('Show raw data'):
 # Number of years of projections
 n= 100 #len(data)
 
+st.subheader("Equations de production de biomasse et de biomasse au MSY avec les modèles de Schaefer et Fox")
 
-# Equation du modèle de schaefer 
-st.caption("L'équations de biomasse avec le modèle de Schaefer")
-st.latex(r'''
-    B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K} - h.B_t\right)
-    ''')
+cola, colb = st.columns(2)
+
+with cola:
+    
+    # Equation du modèle de schaefer 
+    #st.caption("L'équations de biomasse avec le modèle de Schaefer")
+    # st.latex(r'''
+    #          B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K}\right) - h.B_t\\
+    #          ''')
     
     
-st.caption("L'équation du MSY issu du modèle de Schaefer")
-st.latex(r'''
-         CMSY_{Scheafer} = \frac{r\times K} {4}
-         ''')
+    #st.caption("L'équation du MSY issu du modèle de Schaefer")
+    st.latex(r'''
+             
+             B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K}\right) - h.B_t\\
+             C_{MSY} = \frac{r\times K} {4}
+            
+             ''')
+      
+with colb:
          
-         
-# Equation du modèle de FOX   
-st.caption("L'équations de biomasse avec le modèle de Fox")
-st.latex(r'''
-    B_{t+1} = B_t + r.B_t.\left(1 - \frac{\log(B_t)}{\log(K)} - h.B_t\right)
-    ''')
+    # Equation du modèle de FOX   
+    #st.caption("L'équations de biomasse avec le modèle de Fox")
+    st.latex(r'''
+             B_{t+1} = B_t + r.B_t.\left(1 - \frac{\log(B_t)}{\log(K)}\right) - h.B_t\\
+             C_{MSY} = \frac{r\times K} {e^1\times \ln{(K)}}
+             ''')
 
-# CMSY with Fox model formalism
+    # CMSY with Fox model formalism
+    
+    #st.caption("L'équation du MSY issu du modèle de Fox")
+   
 
-st.caption("L'équation du MSY issu du modèle de Fox")
-st.latex(r'''
-    CMSY_{Fox} = \frac{r\times K} {e^1\times \ln{(K)}}
-    ''')
+rs = st.slider("Choix de valeur de r",0.0,1.0, step=0.005)
+Ks = st.slider("Choix de valeur de K",50,5000, step=5)
+h=st.slider("Choix de la pression de pêche", 0.0, 1.0, step=0.01)
 
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-
-    rs = st.slider("Choix de valeur de r",0.0,1.0, step=0.005)
-    Ks = st.slider("Choix de valeur de K",50,5000, step=5)
-    h=st.slider("Choix de la pression de pêche", 0.0, 1.0, step=0.01)
+col2, col3 = st.columns(2)
 
 
 with col2:
