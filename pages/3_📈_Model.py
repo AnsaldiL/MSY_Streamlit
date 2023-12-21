@@ -73,7 +73,7 @@ with col3:
     print(B_shaefer)
     
     B_FOX = np.zeros(n+1)
-    B_FOX[0] = Ks/2
+    B_FOX[0] = Ks/m.exp(1)
 
     #Fox Model
     for i in range(n):
