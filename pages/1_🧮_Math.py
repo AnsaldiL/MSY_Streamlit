@@ -64,3 +64,26 @@ st.markdown("""
             and vice versa. As a first step, it is therefore important to understand how the parameters r and K influence model predictions. 
             This initial approach should enable us to select the most appropriate model for each situation.
             """)
+            
+            
+            
+st.markdown("""
+            These mathematical models estimate, based on intrinsic parameter (r,K) for the species studied and the fishing pressure (h),
+            the total biomass of this species. These global biomass models are widely used to assess the impact of management measures and
+            the state of a stock. We can therefore model biomass at a given time t but also calculate the MSY.
+            """)
+            
+st.subheader("What is this famous MSY ? 🤔")
+
+colabis, colbbis = st.columns(2)
+with colabis:
+    st.markdown("""
+            MSY is a central value for fisheries management. MSY is the maximum quantity of a fish stock that can theoretically
+            be harvested without damaging its reproductive capacity, and therefore his durability. When a fish stock is exploided 
+            at MSY level, the fishing effort deployed allows optimum catches while limiting the impact on the resource exploited (Ifremer).
+            If the stock is exploited above MSY, it will be overfished and catches will fall until the stock collapses.
+
+            """)
+        
+with colbbis:
+    st.image("MSY.jpg")
