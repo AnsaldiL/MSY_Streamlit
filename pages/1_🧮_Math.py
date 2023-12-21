@@ -63,3 +63,13 @@ st.markdown("""
             """)
             
             
+
+
+st.subheader("References")
+
+st.markdown("""
+        Fox WW (1970) An Exponential Surplus-Yield Model for Optimizing Exploited Fish Populations. Transactions of the American Fisheries Society 99: 80–88
+        """)
+st.markdown("""
+        Punt AE (1992) Selecting management methodologies for marine resources, with an illustration for southern African hake. South African Journal of Marine Science 12: 943–958
+        """)
