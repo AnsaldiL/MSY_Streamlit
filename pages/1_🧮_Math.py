@@ -20,11 +20,11 @@ st.subheader("Biomass and MSY biomass production equations with Schaefer and Fox
 cola, colb = st.columns(2)
 
 st.markdown("""
-            Le modèle de Schaefer décrit une croissance logistique de la population de Merlu. 
-            Ceci implique  un lien linéaire entre l'effort de pêche et le nombre de capture.
-            Quant à lui, le modèle de Fox décrit une croissance de Gompertz de la population (Fox, 1970). Cette croissance est plus lente 
-            au début et à la fin de la période de simulation. Elle a aussi pour conséquence la relation exponentielle 
-            entre le nombre de capture et l'effort de pêche (Fox 1970).   
+            Schaefer's model describes the logistic growth of the hake population. 
+            This implies a linear relationship between fishing effort and catch numbers.
+            Fox's model, on the other hand, describes Gompertz population growth (Fox, 1970). This growth is slower 
+            at the beginning and end of the simulation period. It also results in the exponential relationship 
+            between the number of catches and fishing effort (Fox 1970).  
             """)
 
 with cola:
@@ -36,7 +36,7 @@ with cola:
     #          ''')
     
     
-    #st.caption("L'équation du MSY issu du modèle de Schaefer")
+    st.caption("Modèle de Schaefer")
     st.latex(r'''
              
              B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K}\right) - h.B_t\\
@@ -47,7 +47,7 @@ with cola:
 with colb:
          
     # Equation du modèle de FOX   
-    #st.caption("L'équations de biomasse avec le modèle de Fox")
+    st.caption("Modèle de Fox")
     st.latex(r'''
              B_{t+1} = B_t + r.B_t.\left(1 - \frac{\log(B_t)}{\log(K)}\right) - h.B_t\\
              C_{MSY} = \frac{r\times K} {e^1\times \ln{(K)}}
@@ -58,9 +58,9 @@ with colb:
     #st.caption("L'équation du MSY issu du modèle de Fox")
 
 st.markdown("""
-            Ces deux modèles décrivent des types de croissance différentes qui peuvent dépendre de la population étudiée.
-            Notons que Punt, A. E. (1992) a montré que le modèle de Fox est en moyenne plus fiable que le modèle de Schaefer pour décrire les
-            dynamiques halieutiques. Seulement, ce résultat dépend des populations étudiées. Dans certains cas, le modèle de Schaefer présente de meilleurs résultats
-            et inversemnt. Dans un premier temps, Il est donc important de comprendre la manière dont les paramètres r et K influencent les prédictions des modèles. 
-            Cette première approche devrait permettre un choix de modèle plus adapté à chaque situation.
+            These two models describe different types of growth, which may depend on the population studied.
+            Note that Punt, A. E. (1992) has shown that the Fox model is on average more reliable than the Schaefer model for describing
+            fishery dynamics. However, this result depends on the populations studied. In some cases, the Schaefer model gives better results
+            and vice versa. As a first step, it is therefore important to understand how the parameters r and K influence model predictions. 
+            This initial approach should enable us to select the most appropriate model for each situation.
             """)
