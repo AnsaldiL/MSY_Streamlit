@@ -11,7 +11,7 @@ import numpy as np
 import math as m
 
 st.set_page_config(page_title="Math", page_icon="🧮")
-st.write("# Schaefer and Fox model 🧮")
+st.write("# Schaefer and Fox models 🧮")
 
 
 
@@ -24,7 +24,7 @@ st.markdown("""
             This implies a linear relationship between fishing effort and catch numbers.
             Fox model, on the other hand, describes Gompertz population growth (Fox, 1970). This growth is slower 
             at the beginning and end of the simulation period. It also results in the exponential relationship 
-            between the number of catches and fishing effort (Fox 1970).  
+            between the number of catches and fishing effort (Fox, 1970).  
             """)
 
 with cola:
@@ -58,7 +58,7 @@ st.markdown("""
             These two models describe different types of growth, which may depend on the population studied.
             Note that Punt, A. E. (1992) has shown that the Fox model is on average more reliable than the Schaefer model for describing
             fishery dynamics. However, this result depends on the populations studied. In some cases, the Schaefer model gives better results
-            and vice versa. As a first step, it is therefore important to understand how the parameters r and K influence model predictions. 
+            and vice versa. As a first step, it is therefore important to understand how the parameters $r$ and $K$ influence model predictions. 
             This initial approach should enable us to select the most appropriate model for each situation.
             """)
             
