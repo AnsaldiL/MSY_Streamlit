@@ -15,14 +15,14 @@ st.write("# Schaefer and Fox model 🧮")
 
 
 
-st.subheader("Biomass and MSY biomass production equations with Schaefer and Fox models")
+st.subheader("Biomass production equations with Schaefer and Fox models")
 
 cola, colb = st.columns(2)
 
 st.markdown("""
-            Schaefer's model describes the logistic growth of the hake population. 
+            Schaefer model describes the logistic growth of the hake population. 
             This implies a linear relationship between fishing effort and catch numbers.
-            Fox's model, on the other hand, describes Gompertz population growth (Fox, 1970). This growth is slower 
+            Fox model, on the other hand, describes Gompertz population growth (Fox, 1970). This growth is slower 
             at the beginning and end of the simulation period. It also results in the exponential relationship 
             between the number of catches and fishing effort (Fox 1970).  
             """)
@@ -36,7 +36,7 @@ with cola:
     #          ''')
     
     
-    st.caption("Modèle de Schaefer")
+    st.caption("Schaefer model")
     st.latex(r'''
              
              B_{t+1} = B_t + r.B_t.\left(1 - \frac{B_t}{K}\right) - h.B_t\\            
@@ -45,7 +45,7 @@ with cola:
 with colb:
          
     # Equation du modèle de FOX   
-    st.caption("Modèle de Fox")
+    st.caption("Fox model")
     st.latex(r'''
              B_{t+1} = B_t + r.B_t.\left(1 - \frac{\log(B_t)}{\log(K)}\right) - h.B_t\\
              ''')
